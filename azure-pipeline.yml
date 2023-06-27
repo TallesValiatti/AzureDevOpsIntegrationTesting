@@ -20,15 +20,14 @@ steps:
   displayName: 'dotnet build'
   inputs:
     command: 'build'
-    configuration: $(buildConfiguration)
+    projects: '**/*.csproj'
   
 - task: DotNetCoreCLI@2
   displayName: 'dotnet test'
   inputs:
     command: 'test'
+    projects: 'App.IntegrationTests/App.IntegrationTests.csproj'
     arguments: '--configuration $(buildConfiguration) --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=cobertura'
-    publishTestResults: true
-    projects: 'App.IntegrationTests'
   
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish code coverage report'
@@ -38,6 +37,11 @@ steps:
 
 - task: DotNetCoreCLI@2
   displayName: 'Create Artifact'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'publish'
+    publishWebProjects: true
+    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
   inputs:
     command: publish
     publishWebProjects: True
