@@ -39,10 +39,6 @@ steps:
   displayName: 'Create Artifact'
 - task: DotNetCoreCLI@2
   inputs:
-    command: 'publish'
-    publishWebProjects: true
-    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-  inputs:
     command: publish
     publishWebProjects: True
     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
