@@ -1,0 +1,8 @@
+version: "3.8"
+services:
+  mailHog:
+    container_name: "smtpserver"
+    ports:
+      - "8025:8025"
+      - "1025:1025"
+    image: "mailhog/mailhog:latest"

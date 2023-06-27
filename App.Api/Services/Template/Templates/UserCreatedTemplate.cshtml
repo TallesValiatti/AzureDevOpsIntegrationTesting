@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .body {
+            background-color: lightgray;
+            padding: 30px 0px;
+        }
+
+        .content {
+            width: 500px;
+            margin: 0px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .title {
+            font-weight: bold;
+        }
+
+        .table {
+            color: gray;
+            border-collapse: collapse;
+            width: 95%;
+            margin: 0px auto;
+        }
+
+            .table tr {
+                border-bottom: 1pt solid lightgray;
+                height: 40px;
+            }
+
+            .table td {
+                text-align: left;
+            }
+
+                .table td:last-child {
+                    text-align: right;
+                }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="body">
+            <div class="content">
+                <p class="title">@Model.Title</p>
+
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>&nbsp;User Id</td>
+                            <td>&nbsp;@Model.Id</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;User Name</td>
+                            <td>&nbsp;@Model.Name</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;User Age</td>
+                            <td>&nbsp;@Model.Age</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;Created At</td>
+                            <td>&nbsp;@Model.CreatedAt</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
